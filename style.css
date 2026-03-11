@@ -65,7 +65,7 @@ line-height: 1.5;
           padding: 20px;
           background-color: #b09c59;
           font-family: 'Georgia', serif;
-         
+          animation: muncul 1s ease;
           line-height: 1.8;
 }
 .artikel .penulis {
@@ -175,11 +175,24 @@ form button:hover {
   width: 70%;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: muncul 1s ease;
 }
 
 .diskon-box ul {
   list-style: none;
   padding: 0;
+  animation: muncul 1.2s ease;
+}
+
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Tombol */
@@ -198,44 +211,5 @@ form button:hover {
   background-color: #ddaeae;
 }
 
-nav a {
-  text-decoration: none;
-  padding: 10px 15px;
-  color: black;
-  transition: 0.3s;
-}
 
-nav a:hover {
-  color: white;
-  background-color: #ff6b6b;
-  border-radius: 5px;
-}
-.artikel {
-  transition: transform 0.3s;
-}
-
-.artikel:hover {
-  transform: scale(1.05);
-}
-.sampul {
-  transition: transform 0.3s;
-}
-
-.sampul:hover {
-  transform: translateY(-5px);
-}
-.artikel {
-  animation: muncul 1s ease;
-}
-
-@keyframes muncul {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
