@@ -6,30 +6,23 @@ color: #000000;
 margin:0;
   font-family: Arial, sans-serif;
 }
-.navbar{
-  background-color:#2c3e50;
+nav{
+  background-color:#333;
   padding:15px;
   text-align:center;
 }
 
-.navbar a{
+nav a{
   color:white;
   text-decoration:none;
-  margin:0 20px;
+  margin:15px;
   font-size:18px;
-  font-weight:bold;
-  transition:0.3s;
 }
 
-.navbar a:hover{
-  color:#f1c40f;
-  border-bottom:2px solid #f1c40f;
+nav a:hover{
+  color:yellow;
 }
 
-nav {
-background-color: #d6c89b;
-font-size: x-large;
-}
 h1{
 background-color: #b09c59;
 color: #0f0c06;
@@ -231,6 +224,7 @@ form button:hover {
 .btn-event:hover {
   background-color: #ddaeae;
 }
+
 
 
 
