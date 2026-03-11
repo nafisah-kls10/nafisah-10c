@@ -27,10 +27,16 @@ h1{
 background-color: #b09c59;
 color: #0f0c06;
 text-align: center;
+animation: muncul 1s ease;
+line-height: 1.8;
+
 }
 h2{
 color: #544320;
 text-align: left;
+animation: muncul 1s ease;
+line-height: 1.8;
+
 }
 p{
 font-size: 18px;
@@ -224,6 +230,7 @@ form button:hover {
 .btn-event:hover {
   background-color: #ddaeae;
 }
+
 
 
 
