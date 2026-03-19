@@ -233,7 +233,7 @@ form button:hover {
 
 .header {
   max-width: 1200px;
-  margin: auto;
+  margin: 20px;
   padding: 20px;
   text-align: center;
 }
