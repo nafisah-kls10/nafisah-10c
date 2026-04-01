@@ -1,70 +1,50 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-
-scale=1.0">
-<title>Profil Usaha Buku</title>
-<link rel="stylesheet" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimoni Pembeli - Toko Buku Nafisah</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
-  <img src="headerbru.png" alt="Toko Buku Nafisah">
+
+<header class="header">
+  <h1>Toko Buku Nafisah</h1>
 </header>
+
 <nav>
-    <a href="Index.html">beranda</a>
-    <a href="Produk.html">produk</a>
-    <a href="Bedah-buku.html">Bedah buku</a>
-    <a href="Testimoni.html">Testimoni</a>
-    <a href="Tampil-testimoni.html">Testimoni pembeli</a>
-    <a href="Kontak.html">Kontak</a>
-    <a href="Event.html">Event</a>
+    <a href="index.html">Beranda</a>
+    <a href="produk.html">Produk</a>
+    <a href="bedah-buku.html">Bedah Buku</a>
+    <a href="testimoni.html">Testimoni</a>
+    <a href="tampil-testimoni.html">Testimoni Pembeli</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="event.html">Event</a>
 </nav>
 
 <main class="formulir">
-    <h2>Testimoni-testimoni pembeli :</h2>
+    <h2>Testimoni Pembeli</h2>
     <div id="daftarTestimoni"></div>
     <button id="hapusSemua">Hapus Semua Testimoni</button>
 </main>
-<section>
-    <div id="daftarTestimoni"></div>
-</section>
+
 <footer>
-    <p>&copy;2026 Toko buku Nafisah</p>
+    <p>&copy; 2026 Toko Buku Nafisah</p>
 </footer>
+
+<!-- SCRIPT TAMPILKAN DATA -->
 <script>
-document.getElementById('formTestimoni').addEventListener('submit', function(e) {
-    e.preventDefault();
+const container = document.getElementById('daftarTestimoni');
+const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
 
-    const nama = document.getElementById('nama').value;
-    const email = document.getElementById('email').value;
-    const pesan = document.getElementById('pesan').value;
-    const asal = document.getElementById('asal').value;
-    const judul = document.getElementById('judul').value;
-    const rating = document.getElementById('rating').value;
-
-    const dataBaru = { nama, email, pesan, asal, judul, rating };
-// Ambil list dari localStorage
- const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || []; 
-// Tambahkan testimoni baru 
-testimoniList.push(dataBaru); 
-// Simpan kembali ke localStorage 
-localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
-// Arahkan ke halaman konfirmasi
- window.location.href = 'proses-testimoni.html'; });
-</script>
-
-<script>
-    const container = document.getElementById('daftarTestimoni');
-    const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
-JSON.parse(localStorage.getItem('testimoniList'))  || [];
-
-    if (testimoniList.length === 0) {
-        container.innerHTML = "<p>Belum ada testimoni.</p>";
-    } else {
-        testimoniList.forEach((t, i) => {
-            const el = document.createElement('div');
-            el.className = 'testimoni-box';
-            el.innerHTML = `
+if (testimoniList.length === 0) {
+    container.innerHTML = "<p>Belum ada testimoni.</p>";
+} else {
+    testimoniList.forEach((t) => {
+        const el = document.createElement('div');
+        el.className = 'testimoni-box';
+        el.innerHTML = `
             <p><strong>Nama:</strong> ${t.nama}</p>
             <p><strong>Email:</strong> ${t.email}</p>
             <p><strong>Pesan:</strong> ${t.pesan}</p>
@@ -76,17 +56,15 @@ JSON.parse(localStorage.getItem('testimoniList'))  || [];
     });
 }
 
+// HAPUS SEMUA
 document.getElementById("hapusSemua").addEventListener("click", function() {
-        const konfirmasi = confirm("Apakah Anda yakin ingin menghapus semua testimoni?");
-        if (konfirmasi) {
-            localStorage.removeItem("testimoniList");
-            location.reload();
-        }
-    });
+    const konfirmasi = confirm("Yakin hapus semua testimoni?");
+    if (konfirmasi) {
+        localStorage.removeItem("testimoniList");
+        location.reload();
+    }
+});
 </script>
 
 </body>
 </html>
-
-
-
