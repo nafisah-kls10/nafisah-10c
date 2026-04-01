@@ -231,11 +231,9 @@ form button:hover {
   background-color: #ddaeae;
 }
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
+header img {
+  width: 100%;
+  height: auto;
 }
 
 
