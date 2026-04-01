@@ -3,7 +3,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* HEADER */
 .header {
   height: 180px;
   background-image: url('headerbru.png');
@@ -25,7 +24,6 @@ body {
   animation: fadeIn 1.5s ease forwards;
 }
 
-/* NAVBAR */
 .navbar {
   background: #333;
   padding: 10px;
@@ -44,20 +42,32 @@ body {
   transform: scale(1.1);
 }
 
-/* CONTENT */
 .content {
   padding: 20px;
   animation: fadeIn 2s ease;
 }
 
-/* JUDUL */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* KEYFRAME ANIMASI */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .judul {
   text-align: center;
   margin-bottom: 20px;
   animation: fadeIn 1.5s ease;
 }
 
-/* CARD */
 .card {
   background: white;
   margin: 20px auto;
@@ -71,12 +81,6 @@ body {
   animation: fadeIn 1s ease forwards;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  transition: 0.3s;
-}
-
-/* GAMBAR */
 .sampul {
   width: 100%;
   border-radius: 8px;
@@ -88,7 +92,38 @@ body {
   font-size: 14px;
 }
 
-/* PRODUK */
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HEADER BACKGROUND */
+.header {
+  height: 180px;
+  background-image: url('headerbru.png');
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* GRID PRODUK */
 .daftar-produk {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -96,12 +131,14 @@ body {
   padding: 20px;
 }
 
+/* CARD */
 .produk {
   background: white;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
   transition: 0.3s;
 }
 
@@ -120,13 +157,59 @@ body {
   font-weight: bold;
 }
 
+.header {
+  height: 180px;
+  background-image: url('headerbru.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+.judul {
+  text-align: center;
+  margin: 20px;
+}
+
+.card {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s forwards;
+}
+
 /* KONFIRMASI */
 .konfirmasi {
   text-align: center;
   padding: 50px 20px;
 }
 
-/* BUTTON LINK */
+.konfirmasi h1 {
+  margin-bottom: 10px;
+}
+
+/* TOMBOL */
+.aksi {
+  margin-top: 20px;
+}
+
 .btn {
   display: inline-block;
   margin: 10px;
@@ -150,12 +233,11 @@ body {
   background: #2ecc71;
 }
 
-/* KONTAK */
 .kontak {
   margin-bottom: 40px;
 }
 
-/* EVENT */
+
 .event-container {
   padding: 40px;
   background-color: #f9f9f9;
@@ -177,7 +259,7 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* DISKON */
+
 .diskon-box {
   background: #c09494;
   color: white;
@@ -192,9 +274,21 @@ body {
 .diskon-box ul {
   list-style: none;
   padding: 0;
+  animation: muncul 1.2s ease;
 }
 
-/* BUTTON EVENT */
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .btn-event {
   display: inline-block;
   margin-top: 30px;
@@ -203,13 +297,39 @@ body {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  transition: 0.3s;
 }
 
 .btn-event:hover {
   background-color: #ddaeae;
 }
 
-/* TESTIMONI */
+/* HEADER BACKGROUND */
+.header {
+  height: 180px;
+  background-image: url('headerbru.png');
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* FORM AREA */
+.formulir {
+  padding: 30px;
+  text-align: center;
+}
+
+/* TESTIMONI BOX */
 .testimoni-box {
   background: white;
   margin: 15px auto;
@@ -217,22 +337,8 @@ body {
   max-width: 500px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
   text-align: left;
-}
-
-/* FORM */
-.formulir {
-  max-width: 500px;
-  margin: 30px auto;
-}
-
-/* INPUT */
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
 }
 
 /* BUTTON */
@@ -249,30 +355,38 @@ button {
 button:hover {
   background: darkred;
 }
+/* FORM */
+.formulir {
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-/* FOOTER */
-footer {
-  background: #333;
-  color: white;
-  text-align: center;
+/* INPUT */
+input, textarea {
+  width: 100%;
   padding: 10px;
+  margin: 8px 0 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-/* ANIMASI */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-@keyframes muncul {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button:hover {
+  background: #34495e;
 }
+
+skrng iru css ny betulin seng tdk kmu sebutin tdiii.........tolong yg bener ato tk tabok kau
