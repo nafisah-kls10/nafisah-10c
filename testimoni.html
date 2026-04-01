@@ -1,80 +1,92 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testimoni - Toko Buku Nafisah</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Profil Usaha Buku</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-<header class="header">
-  <h1>Toko Buku Nafisah</h1>
+<header>
+  <img src="headerbru.png" alt="Toko Buku Nafisah">
 </header>
-
 <nav>
-    <a href="index.html">Beranda</a>
-    <a href="produk.html">Produk</a>
-    <a href="bedah-buku.html">Bedah Buku</a>
-    <a href="testimoni.html">Testimoni</a>
-    <a href="tampil-testimoni.html">Testimoni Pembeli</a>
-    <a href="kontak.html">Kontak</a>
-    <a href="event.html">Event</a>
+    <a href="Index.html">beranda</a>
+    <a href="Produk.html">produk</a>
+    <a href="Bedah-buku.html">Bedah buku</a>
+    <a href="Testimoni.html">Testimoni</a>
+    <a href="Tampil-testimoni.html">Testimoni pembeli</a>
+    <a href="Kontak.html">Kontak</a>
+    <a href="Event.html">Event</a>
 </nav>
 
 <main class="formulir">
-    <h2>Berikan Testimoni Anda</h2>
-
-    <form id="formTestimoni">
-
-        <label>Nama:</label>
-        <input type="text" id="nama" required placeholder="Nama lengkap">
-
-        <label>Email:</label>
-        <input type="email" id="email" required placeholder="email@example.com">
-
-        <label>Testimoni:</label>
-        <textarea id="pesan" required placeholder="Tulis pengalaman anda..." rows="5"></textarea>
-
-        <label>Asal:</label>
-        <input type="text" id="asal" required placeholder="Contoh: SMA Al Kautsar">
-
-        <label>Judul Buku:</label>
-        <input type="text" id="judul">
-
-        <label>Rating (1-5):</label>
-        <input type="number" id="rating" min="1" max="5">
-
-        <button type="submit">Kirim Testimoni</button>
-
-    </form>
+    <h2>Testimoni-testimoni pembeli :</h2>
+    <div id="daftarTestimoni"></div>
+    <button id="hapusSemua">Hapus Semua Testimoni</button>
 </main>
-
+<section>
+    <div id="daftarTestimoni"></div>
+</section>
 <footer>
-    <p>&copy; 2026 Toko Buku Nafisah</p>
+    <p>&copy;2026 Toko buku Nafisah</p>
 </footer>
-
 <script>
 document.getElementById('formTestimoni').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const dataBaru = {
-        nama: document.getElementById('nama').value,
-        email: document.getElementById('email').value,
-        pesan: document.getElementById('pesan').value,
-        asal: document.getElementById('asal').value,
-        judul: document.getElementById('judul').value,
-        rating: document.getElementById('rating').value
-    };
+    const nama = document.getElementById('nama').value;
+    const email = document.getElementById('email').value;
+    const pesan = document.getElementById('pesan').value;
+    const asal = document.getElementById('asal').value;
+    const judul = document.getElementById('judul').value;
+    const rating = document.getElementById('rating').value;
 
+    const dataBaru = { nama, email, pesan, asal, judul, rating };
+// Ambil list dari localStorage
+ const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || []; 
+// Tambahkan testimoni baru 
+testimoniList.push(dataBaru); 
+// Simpan kembali ke localStorage 
+localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
+// Arahkan ke halaman konfirmasi
+ window.location.href = 'proses-testimoni.html'; });
+</script>
+
+<script>
+    const container = document.getElementById('daftarTestimoni');
     const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
-    testimoniList.push(dataBaru);
-    localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
+JSON.parse(localStorage.getItem('testimoniList'))  || [];
 
-    window.location.href = 'proses-testimoni.html';
-});
+    if (testimoniList.length === 0) {
+        container.innerHTML = "<p>Belum ada testimoni.</p>";
+    } else {
+        testimoniList.forEach((t, i) => {
+            const el = document.createElement('div');
+            el.className = 'testimoni-box';
+            el.innerHTML = `
+            <p><strong>Nama:</strong> ${t.nama}</p>
+            <p><strong>Email:</strong> ${t.email}</p>
+            <p><strong>Pesan:</strong> ${t.pesan}</p>
+            <p><strong>Asal:</strong> ${t.asal}</p>
+            <p><strong>Judul Buku:</strong> ${t.judul}</p>
+            <p><strong>Rating:</strong> ${t.rating}</p>
+        `;
+        container.appendChild(el);
+    });
+}
+
+document.getElementById("hapusSemua").addEventListener("click", function() {
+        const konfirmasi = confirm("Apakah Anda yakin ingin menghapus semua testimoni?");
+        if (konfirmasi) {
+            localStorage.removeItem("testimoniList");
+            location.reload();
+        }
+    });
 </script>
 
 </body>
 </html>
+
+
+selanjutnyy
