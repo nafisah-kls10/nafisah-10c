@@ -233,7 +233,7 @@ form button:hover {
 
 header {
   width: 100%;
-  height: 150px;
+  height:  30vh;
   background-image: url('headerbru.png'); 
   background-size: cover;
   background-position: center;
